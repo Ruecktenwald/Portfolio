@@ -21,6 +21,17 @@ describe 'navigate' do
       visit posts_path
       expect(page).to have_content(/How to install rspec/)
     end
+     
+    feature 'navbar' do
+
+     it "new_post_path can be reached from menu in nav" do
+      visit root_path
+      click_on('Menu')
+      click_on('New Post')
+
+       expect(current_path).to eq("/posts/new")
+    end
+  end
   end 
 
   feature 'User posts' do
