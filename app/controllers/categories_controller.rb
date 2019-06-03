@@ -6,11 +6,12 @@ class CategoriesController < ApplicationController
 
   def show
     authorize @category
+    @post = Category.find_by(params[:category_id])
   end
 
   def top_four
   end
-  
+
   def new
     @category = Category.new
   end
@@ -54,7 +55,7 @@ class CategoriesController < ApplicationController
   private
 
   def set_category
-    @category = Category.find_by!(params[slug: :id])
+    @category = Category.find_by!(params[slug: :name])
   end
 
   def category_params

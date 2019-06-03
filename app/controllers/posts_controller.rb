@@ -10,15 +10,17 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new 
+    @category = Category.find_by(params[:id])
+    @post = Post.new(category_id: @category)
   end
 
   def create
+    @category = Category.find_by(params[:id])
     @post = Post.new(post_params)
     @post.user_id = current_user.id
 
     if @post.save 
-      redirect_to(@post, :flash => [:success])
+      redirect_to @category, :flash => [:success]
     else
       render :new
     end

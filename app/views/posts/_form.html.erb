@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="middle">
-		<%= form_for @post do |f| %>
-		<%= render "shared/errors", object: @post %>
+		<%= form_for [@category, @post] do |f| %>
+		<%= render "shared/errors", object: f.object %>
 		<div>
       <%= f.label :description, "Description:" %><br>
       <%= f.text_field :description, size: "150x12", class: "code-background-show text-color container-fluid" %><br><br>

@@ -8,11 +8,10 @@ class Category < ApplicationRecord
   validates :slug, uniqueness: true
   before_create :make_slug
 
+
   def uppercase_category
     self.name.capitalize!
   end
-
- 
 
   def to_param
     slug

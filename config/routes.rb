@@ -14,10 +14,11 @@ Rails.application.routes.draw do
 
   get 'search' => 'posts#search', :as => 'search_page'
   get 'categories/:top-four' => 'categories#top_four', as: 'top-four'
-  get '/:posts' => 'posts#index', as: 'category'
   get 'recent-posts/:recent' => 'posts#recent', :as => 'most_recent'
   
   resources :categories do
-    resources :posts
+    resources :posts, only: [:new, :create]
   end  
+  
+  resources :posts, only: [:show, :edit, :update, :destroy]
 end

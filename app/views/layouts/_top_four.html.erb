@@ -4,7 +4,7 @@
   <ul class="nav justify-content-center" >
     <% @top_four_categories.limit(4).each do |category| %>
     <li class="nav-item ">
-      <%= link_to "#{category.name}", category_path(category), class: "nav-top-four" %>
+      <%= link_to "#{category.name}", category_posts_path(category), class: "nav-top-four" %>
     </li>
     <%end%>
   </ul>
