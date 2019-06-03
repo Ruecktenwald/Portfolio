@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
 
   def top_four
   end
-
+  
   def new
     @category = Category.new
   end
@@ -50,19 +50,18 @@ class CategoriesController < ApplicationController
     end
   end
 
+
   private
 
-  def category_params
-    params.require(:category).permit(:name, :status)
-  end
-
   def set_category
-    @category = Category.find(params[:id])
+    @category = Category.find_by!(params[slug: :id])
   end
-end
 
-private
+  def category_params
+    params.require(:category).permit(:name, :status, :user_id, :slug)
+  end
 
-def already_four?
- @categories.where(status: 1).count >= 4   
+  def already_four?
+    @categories.where(status: 1).count >= 4   
+  end
 end

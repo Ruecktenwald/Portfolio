@@ -64,14 +64,15 @@ class PostsController < ApplicationController
     end
   end
 
+
   private
 
   def post_params
-    params.require(:post).permit(:description, :code, :user_id, :category_id)
+    params.require(:post).permit(:description, :code, :user_id, :category_id, :slug)
   end
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.find_by!(params[slug: :category_id])
   end
 
   def set_current_user_posts

@@ -22,10 +22,10 @@
             <%= link_to 'New Category', new_category_path, class: "nav-link" %>
           </a>
           <a class="dropdown-item ">  
-            <%= link_to 'New Post', new_post_path, class: "nav-link" %>
+            <%= link_to 'New Post', new_category_post_path(current_user), class: "nav-link" %>
           </a>
           <a class="dropdown-item ">  
-            <%= link_to 'Most Recent Posts', most_recent_path(current_user.posts), class: "nav-link" %>
+            <%= link_to 'Most Recent Posts', most_recent_path(current_user), class: "nav-link" %>
           </a>
 
           <% if current_user.type == "AdminUser" %>
@@ -74,10 +74,10 @@
         <%= link_to 'New Category', new_category_path, class: "nav-link" %>
       </li>
       <li>  
-        <%= link_to 'New Post', new_post_path, class: "nav-link" %>
+        <%= link_to 'New Post', new_category_post_path(current_user), class: "nav-link" %>
       </li>
       <li>  
-        <%= link_to 'Most Recent Posts', most_recent_path(current_user.posts), class: "nav-link" %>
+        <%= link_to 'Most Recent Posts', most_recent_path(current_user), class: "nav-link" %>
       </li>
       <li class="nav-item log-out"> 
         <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "nav-link home-space" %>

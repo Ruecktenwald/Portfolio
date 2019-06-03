@@ -5,16 +5,15 @@
   <div class="myaccordion">
     <div class="card ">
       <div class="card-header">
-        <div class="label-style-category"><%= link_to "Category", category_path(category), class: "label-style-top-four" %></div>
+        <div class="label-style-category"><%= link_to "Category", categories_path(category), class: "label-style-top-four" %></div>
         <h2 class="mb-0 middle">
           <button class=" btn btn-link">
-            <%= link_to "#{category.name}", category_posts_path(category), class: "posts" %>
+            <%= link_to "#{category.name}", category_path(category), class: "posts" %>
           </button>
           <div class="label-style-category">
             <%=pluralize(category.posts.count, 'post')%>
           </div>
         </h2>
-
       </div>
     </div>
   </div>
