@@ -16,7 +16,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'devise', '~> 4.6', '>= 4.6.2'
+gem 'devise', '~> 4.7'
 gem 'figaro'
 gem "bootstrap", ">= 4.3.1"
 gem "bootstrap_flash_messages", "~> 1.0.1"
